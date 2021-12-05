@@ -21,10 +21,9 @@ class CreateLichhensTable extends Migration
             $table->unsignedBigInteger('id_NhanVien');
             $table->string('thanhTien');
             $table->timestamps();
-            //$table->foreign('id_Khachhang')->references('id')->on('users')->onDelete('cascade');
-            //$table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
-            //$table->foreign('id_NhanVien')->references('id')->on('nhanviens')->onDelete('cascade');
-
+            $table->foreign('id_Khachhang')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
+            $table->foreign('id_NhanVien')->references('id')->on('nhanviens')->onDelete('cascade');
         });
     }
 

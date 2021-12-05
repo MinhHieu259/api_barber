@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Nhanvien extends Model
+class nhanvien extends Model
 {
     public function dichvu()
     {

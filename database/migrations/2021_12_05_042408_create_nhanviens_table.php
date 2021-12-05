@@ -20,8 +20,7 @@ class CreateNhanviensTable extends Migration
             $table->string('diaChi');
             $table->string('soDienthoai');
             $table->timestamps();
-            //$table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
-
+            $table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
         });
     }
 
