@@ -18,3 +18,7 @@ Route::post('login','Api\AuthController@login');
 Route::post('register','Api\AuthController@register');
 Route::get('logout','Api\AuthController@logout');
 Route::post('save_user_info','Api\AuthController@saveUserInfo')->middleware('jwtAuth');
+
+//Salon
+Route::post('getSalonFeature','Api\SalonController@getSalonFeature');
+
