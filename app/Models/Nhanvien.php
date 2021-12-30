@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class nhanvien extends Model
 {
+    public function salon()
+    {
+        return $this->belongsTo(Salon::class);
+    }
     public function dichvu()
     {
         return $this->hasMany(dichvu::class);

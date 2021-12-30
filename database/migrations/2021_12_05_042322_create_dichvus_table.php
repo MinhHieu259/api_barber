@@ -15,10 +15,12 @@ class CreateDichvusTable extends Migration
     {
         Schema::create('dichvus', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_salon');
             $table->string('tenDichvu');
             $table->integer('thoiGian');
             $table->string('giaTien');
             $table->timestamps();
+            $table->foreign('id_salon')->references('id')->on('salons')->onDelete('cascade');
         });
     }
 

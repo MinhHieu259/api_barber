@@ -16,11 +16,13 @@ class CreateNhanviensTable extends Migration
         Schema::create('nhanviens', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_Dichvu');
+            $table->unsignedBigInteger('id_salon');
             $table->string('hoTen');
             $table->string('diaChi');
             $table->string('soDienthoai');
             $table->timestamps();
             $table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
+            $table->foreign('id_salon')->references('id')->on('salons')->onDelete('cascade');
         });
     }
 

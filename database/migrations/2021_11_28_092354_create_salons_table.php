@@ -16,6 +16,7 @@ class CreateSalonsTable extends Migration
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
             $table->string('tenSalon');
+            $table->string('chuTiem');
             $table->string('diachi');
             $table->string('hinhanh');
             $table->float('danhgia');
