@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SalonController extends Controller
 {
-    public function getSalonFeature()
+    public function getSalon()
     {
         $salons = Salon::orderBy('id','desc')->get();
         
@@ -17,4 +17,16 @@ class SalonController extends Controller
             'salon' => $salons
         ]);
     }
+
+    public function getSalonFeature()
+    {
+        $salons = Salon::where('noibat','1')->get();
+
+        return response()->json([
+            'success' => true,
+            'salon' => $salons
+        ]);
+    }
+
+    
 }

@@ -9,7 +9,7 @@ class dichvu extends Model
 {
     public function salon()
     {
-        return $this->belongsTo(Salon::class);
+        return $this->belongsTo(Salon::class, 'id_salon');
     }
     public function nhanvien()
     {
