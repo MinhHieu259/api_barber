@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLichhensTable extends Migration
+class CreateTblDichvu extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateLichhensTable extends Migration
      */
     public function up()
     {
-        Schema::create('lichhens', function (Blueprint $table) {
+        Schema::create('dichvus', function (Blueprint $table) {
             $table->id();
-            $table->string('ngayHen');
-            $table->unsignedBigInteger('id_Khachhang');
-            $table->unsignedBigInteger('id_Dichvu');
+            $table->unsignedBigInteger('id_salon');
             $table->unsignedBigInteger('id_NhanVien');
-            $table->string('thanhTien');
+            $table->string('tenDichvu');
+            $table->string('hinhanh');
+            $table->integer('thoiGian');
+            $table->string('giaTien');
             $table->timestamps();
-            $table->foreign('id_Khachhang')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
+            $table->foreign('id_salon')->references('id')->on('salons')->onDelete('cascade');
             $table->foreign('id_NhanVien')->references('id')->on('nhanviens')->onDelete('cascade');
         });
     }
@@ -34,6 +34,6 @@ class CreateLichhensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lichhens');
+        Schema::dropIfExists('dichvus');
     }
 }

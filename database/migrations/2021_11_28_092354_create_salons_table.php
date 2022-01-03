@@ -20,6 +20,7 @@ class CreateSalonsTable extends Migration
             $table->string('diachi');
             $table->string('hinhanh');
             $table->float('danhgia');
+            $table->integer('noibat')->default(1);
             $table->timestamps();
         });
     }

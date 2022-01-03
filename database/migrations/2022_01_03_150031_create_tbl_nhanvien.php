@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDichvusTable extends Migration
+class CreateTblNhanvien extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateDichvusTable extends Migration
      */
     public function up()
     {
-        Schema::create('dichvus', function (Blueprint $table) {
+        Schema::create('nhanviens', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_salon');
-            $table->string('tenDichvu');
-            $table->integer('thoiGian');
-            $table->string('giaTien');
+            $table->string('hoTen');
+            $table->string('diaChi');
+            $table->string('soDienthoai');
             $table->timestamps();
             $table->foreign('id_salon')->references('id')->on('salons')->onDelete('cascade');
         });
@@ -31,6 +31,6 @@ class CreateDichvusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dichvus');
+        Schema::dropIfExists('nhanviens');
     }
 }
