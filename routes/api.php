@@ -25,3 +25,8 @@ Route::get('getSalonFeature','Api\SalonController@getSalonFeature');
 
 // Dịch vụ
 Route::get('getDichvu','Api\DichvuController@getDichVu');
+
+//Lịch hẹn
+
+
+// Nhân viên
