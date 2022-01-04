@@ -66,6 +66,8 @@ class AuthController extends Controller
         $user = User::find(Auth::user()->id);
         $user->name = $request->name;
         $user->lastname = $request->lastname;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
         $photo ='';
         // check if user provide photo
         if($request->photo != ''){
@@ -81,5 +83,14 @@ class AuthController extends Controller
             'success' => true,
             'photo' => $photo
         ]);
+    }
+
+    public function show_info_user()
+    {
+       $user = Auth::user();
+       return response()->json([
+            'success' => true,
+            'user' => $user
+       ]);
     }
 }
