@@ -28,9 +28,9 @@ class SalonController extends Controller
         ]);
     }
 
-    public function getSalonById(Request $request)
+    public function getSalonById($id)
     {
-        $salon = Salon::where('id', $request->id_salon)->get();
+        $salon = Salon::where('id', $id)->get();
         return response()->json([
             'success' => true,
             'salon' => $salon

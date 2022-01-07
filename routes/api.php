@@ -23,7 +23,7 @@ Route::get('show_info_user','Api\AuthController@show_info_user')->middleware('jw
 //Salon
 Route::post('getSalon','Api\SalonController@getSalon');
 Route::get('getSalonFeature','Api\SalonController@getSalonFeature');
-Route::get('getSalonById','Api\SalonController@getSalonById');
+Route::get('getSalonById/{id}','Api\SalonController@getSalonById');
 
 // Dịch vụ
 Route::get('getDichvu','Api\DichvuController@getDichVu');
