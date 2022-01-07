@@ -30,5 +30,9 @@ Route::get('getDichvu','Api\DichvuController@getDichVu');
 
 //Lịch hẹn
 
+//Nhân viên
+Route::get('getNhanVienBySalon/{gio},{id_salon}','Api\NhanVienController@getNhanVienBySalon');
+
+
 
 // Nhân viên
