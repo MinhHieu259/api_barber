@@ -22,4 +22,9 @@ class DichvuController extends Controller
             'dichvu' => $dichvus
         ]);
     }
+
+    public function getDichVuBySalon($id_salon)
+    {
+        
+    }
 }
