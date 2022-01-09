@@ -16,7 +16,6 @@ class InsertBangNhanvien extends Migration
         Schema::table('nhanviens', function (Blueprint $table) {
             $table->time("gioBatDauLam")->default(null);
             $table->time("gioNghiLam")->default(null);
-            $table->unsignedBigInteger("trangThai")->default(0);
         });
     }
 
