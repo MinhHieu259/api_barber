@@ -25,6 +25,10 @@ class DichvuController extends Controller
 
     public function getDichVuBySalon($id_salon)
     {
-        
+        $dichvu = dichvu::where('id_salon', $id_salon)->get();
+        return response()->json([
+            'success' => true,
+            'dichvu' => $dichvu
+        ]);
     }
 }
