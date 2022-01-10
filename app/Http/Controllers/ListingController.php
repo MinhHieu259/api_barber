@@ -11,7 +11,8 @@ class ListingController extends Controller
         switch ($modelName) {
             case 'Salon':
                 return redirect()->route('salon.showSalon');
-                break;
+            case 'Staff':
+                return redirect()->route('nhanvien.showNhanVien');     
         }
     }
 }

@@ -2,8 +2,10 @@
 @section('content')
 <div class="">
 
+  <a class="btn btn-primary float-right d-block" href="{{route('nhanvien.show')}}" role="button">Thêm nhân viên</a>
+
     <div class="title_left">
-        <h3>Tables <small>Some examples to get you started</small></h3>
+        <h3>Quản lý <small> nhân viên</small></h3>
     </div>
 
     <div class="row" style="display: block;">
@@ -12,7 +14,7 @@
             
           <div class="x_title">
               
-            <h2>Bordered table <small>Bordered table subtitle</small></h2>
+            <h2>Danh sách <small>Nhân viên</small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -34,23 +36,33 @@
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Name</th>
-                  <th>Image</th>
-                  <th>Price</th>
+                  <th>Họ Tên</th>
+                  <th>Số điện thoại</th>
+                  <th>Giờ băt đầu làm</th>
+                  <th>Giờ nghỉ làm</th>
+                  <th>Chức vụ</th>
+                  <th>Địa chỉ</th>
+                  <th>Sửa</th>
+                  <th>Xoá</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach ($records as $record)
                   <tr>
                     <th scope="row"> {{ $record->id }}</th>
-                    <td>{{$record->name}}</td>
-                    <td><img src="{{ $record->image}}"/></td>
-                    <td>{{$record->price}}</td>
+                    <td>{{$record->hoTen}}</td>
+                    <td>{{$record->soDienthoai}}</td>
+                    <td>{{$record->gioBatDauLam}}</td>
+                    <td>{{$record->gioNghiLam}}</td>
+                    <td>{{$record->chucvu}}</td>
+                    <td>{{$record->diaChi}}</td>
+                    <td><a href="{{route('nhanvien.showUpdateNhanVien',['id'=>$record->id])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Sửa</a></td>
+                    <td><a href="{{route('nhanvien.deleteNhanVien', ['id' => $record->id])}}"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Xóa</a></td>
                   </tr>
                 @endforeach
               </tbody>
             </table>
-            {{$records->links("pagination::bootstrap-4")}}
+         
           </div>
         </div>
       </div>
