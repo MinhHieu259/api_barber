@@ -31,6 +31,8 @@ Route::get('getDichvu','Api\DichvuController@getDichVu');
 Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon');
 
 //Lịch hẹn
+Route::post('DatLich','Api\LichhenController@DatLich');
+
 
 //Nhân viên
 Route::get('getNhanVienBySalon/{gio},{id_salon}','Api\NhanVienController@getNhanVienBySalon');
