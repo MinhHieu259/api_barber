@@ -62,8 +62,8 @@ class SalonWebController extends Controller
         if ($request->hasFile('hinhAnh')) {
             // kiểm tra hình ảnh có tồn tại trong db
             if ($salon->hinhAnh) {
-                $path = str_replace("storage", "public", $salon->hinhAnh);
-                Storage::delete($path);
+                //$path = str_replace("storage", "public", $salon->hinhAnh);
+                Storage::delete("public/salon/". $salon->hinhAnh);
             }
 
             // lấy tên file
@@ -75,8 +75,8 @@ class SalonWebController extends Controller
                 'public/salon',
                 $name
             );
-            $path = str_replace("public", "storage", $path);
-            $salon->hinhAnh = $path;
+           // $path = str_replace("public", "storage", $path);
+            $salon->hinhAnh = $name;
         }
         $salon->tenSalon = $request->tenSalon;
         $salon->chuTiem = $request->chuTiem;

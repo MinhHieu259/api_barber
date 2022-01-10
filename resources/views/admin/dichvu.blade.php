@@ -51,7 +51,7 @@
                     <th scope="row"> {{ $record->id }}</th>
                     <td>{{$record->tenNhanVien }}</td>
                     <td>{{$record->tenDichvu}}</td>
-                    <td><img height="200px" width="200px" onerror="this.src='/image/no-service.png'" src="{{'/'. $record->hinhanh}}" object-fit="cover"; class="profile img-circle img-fluid" alt="avatar">  </td>
+                    <td><img height="200px" width="200px" onerror="this.src='/image/no-service.png'" src="{{'/storage/dichvu//'. $record->hinhanh}}" object-fit="cover"; class="profile img-circle img-fluid" alt="avatar">  </td>
                     <td>{{$record->thoiGian}}</td>
                     <td>{{$record->giaTien}}</td>
                     <td><a href="{{route('dichvu.showUpdate',['id'=>$record->id])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Sửa</a></td>

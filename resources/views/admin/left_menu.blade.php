@@ -8,7 +8,7 @@
     <!-- menu profile quick info -->
     <div class="profile clearfix">
       <div class="profile_pic">
-        <img onerror="this.src='/image/no-avatar.png'" src="{{'/'. $user->hinhAnh}}" class="img-circle profile_img" style="height:50px; width:50px">
+        <img onerror="this.src='/image/no-avatar.png'" src="{{'/storage/salon//'. $user->hinhAnh}}" class="img-circle profile_img" style="height:50px; width:50px">
       </div>
       <div class="profile_info">
         <span>Welcome,</span>

@@ -16,7 +16,7 @@
 		                    <form method="POST" action="{{route('salon.updateSalon')}}" enctype="multipart/form-data">
                           @csrf
                              <div class="text-center">
-                                    <img height="200px" width="200px" onerror="this.src='/image/no-avatar.png'" src="{{'/'. $user->hinhAnh}}" object-fit="cover"; class="profile img-circle img-fluid" alt="avatar">
+                                    <img height="200px" width="200px" onerror="this.src='/image/no-avatar.png'" src="{{'/storage/salon//'. $user->hinhAnh}}" object-fit="cover"; class="profile img-circle img-fluid" alt="avatar">
                                     <h6></h6>
                                     <input type="file" class="text-center center-block file-upload" name="hinhAnh">
                               </div></hr><br>

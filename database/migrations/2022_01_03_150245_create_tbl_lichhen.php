@@ -20,7 +20,7 @@ class CreateTblLichhen extends Migration
             $table->unsignedBigInteger('id_Dichvu');
             $table->unsignedBigInteger('id_NhanVien');
             $table->string('thanhTien');
-            $table->string('status')->default('0');
+            $table->string('status')->default('Chưa xác nhận');
             $table->timestamps();
             $table->foreign('id_Khachhang')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_Dichvu')->references('id')->on('dichvus')->onDelete('cascade');
