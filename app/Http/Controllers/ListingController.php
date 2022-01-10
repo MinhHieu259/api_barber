@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,13 @@ class ListingController extends Controller
             case 'Salon':
                 return redirect()->route('salon.showSalon');
             case 'Staff':
-                return redirect()->route('nhanvien.showNhanVien');     
+                return redirect()->route('nhanvien.showNhanVien');
             case 'Service':
                 return redirect()->route('dichvu.show');
+            case 'Calendar':
+                return redirect()->route('lichhen.show', [
+                    'status' => "chưa xác nhận"
+                ]);
         }
     }
 }
