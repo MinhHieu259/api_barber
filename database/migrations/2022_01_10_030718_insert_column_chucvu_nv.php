@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class InsertBangNhanvien extends Migration
+class InsertColumnChucvuNv extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class InsertBangNhanvien extends Migration
     public function up()
     {
         Schema::table('nhanviens', function (Blueprint $table) {
-            $table->time("gioBatDauLam")->default(null);
-            $table->time("gioNghiLam")->default(null);
+           $table->string("chucvu")->default("");
         });
     }
 
@@ -27,9 +26,7 @@ class InsertBangNhanvien extends Migration
     public function down()
     {
         Schema::table('nhanviens', function (Blueprint $table) {
-            $table->dropColumn("gioBatDauLam");
-            $table->dropColumn("gioNghiLam");
-            $table->dropColumn("trangThai");
-        });
+            $table->dropColumn("chucvu");
+         });
     }
 }
