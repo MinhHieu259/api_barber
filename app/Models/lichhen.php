@@ -9,11 +9,11 @@ class lichhen extends Model
 {
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,"id_Khachhang");
     }
     public function nhanvien()
     {
-        return $this->belongsTo(Nhanvien::class);
+        return $this->belongsTo(Nhanvien::class,"id_NhanVien");
     }
     public function dichvu()
     {

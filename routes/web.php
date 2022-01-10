@@ -6,6 +6,7 @@ use App\Http\Controllers\SalonWebController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\NhanVienWebController;
 use App\Http\Controllers\DichVuWebController;
+use App\Http\Controllers\LichHenWebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +55,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/dichvu/delete/{id}', [DichVuWebController::class, 'delete'])->name('dichvu.deleteDichvu');
     Route::get('/admin/dichvu/update/{id}', [DichVuWebController::class, 'showUpdate'])->name('dichvu.showUpdate');
     Route::post('/admin/dichvu/update', [DichVuWebController::class, 'update'])->name('dichvu.update');
+
+    Route::get('/admin/lichhen/show/{status}', [LichHenWebController::class, 'show'])->name('lichhen.show');
+    Route::get('/admin/lichhen/update/{id}/{status}', [LichHenWebController::class, 'update'])->name('lichhen.update');
 });
