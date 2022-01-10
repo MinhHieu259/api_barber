@@ -14,7 +14,7 @@ class InsertColumnGioithieu extends Migration
     public function up()
     {
         Schema::table('salons', function (Blueprint $table) {
-            $table->string("gioiThieu")->default("");
+            $table->string("gioiThieu")->default("Là một Salon tốt");
         });
     }
 
