@@ -13,6 +13,8 @@ class ListingController extends Controller
                 return redirect()->route('salon.showSalon');
             case 'Staff':
                 return redirect()->route('nhanvien.showNhanVien');     
+            case 'Service':
+                return redirect()->route('dichvu.show');
         }
     }
 }

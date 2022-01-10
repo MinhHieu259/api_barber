@@ -13,6 +13,6 @@ class dichvu extends Model
     }
     public function nhanvien()
     {
-        return $this->belongsTo(Nhanvien::class);
+        return $this->belongsTo(Nhanvien::class, 'id_NhanVien');
     }
 }

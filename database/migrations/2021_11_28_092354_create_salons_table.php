@@ -15,7 +15,7 @@ class CreateSalonsTable extends Migration
     {
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
-            $table->string('tenSalon')->default("Vui lòng điền tên salon");
+            $table->string('tenSalon')->default("Salon");
             $table->string('chuTiem')->default("Vui lòng điền tên chủ tiệm");
             $table->string('diaChi')->default("Vui lòng điền địa chỉ");
             $table->string('hinhAnh')->default("");

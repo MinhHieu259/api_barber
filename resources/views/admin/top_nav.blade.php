@@ -6,7 +6,7 @@
     <ul class=" navbar-right">
       <li class="nav-item dropdown open" style="padding-left: 15px;">
         <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-          <img src="https://yt3.ggpht.com/yti/APfAmoHaKfX2cNkZRfsHlTpK05jvYyZVzD_Vlrw0CW7fHg=s48-c-k-c0x00ffffff-no-rj" alt=""> {{$user->name}}
+          <img onerror="this.src='/image/no-avatar.png'" src="{{'/'. $user->hinhAnh}}" alt=""> {{$user->name}}
         </a>
         <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item"  href="javascript:;"> Profile</a>

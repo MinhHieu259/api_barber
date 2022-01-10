@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SalonWebController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\NhanVienWebController;
+use App\Http\Controllers\DichVuWebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/nhanvien/delete/{id}', [NhanVienWebController::class, 'deleteNhanVien'])->name('nhanvien.deleteNhanVien');
     Route::get('/admin/nhanvien/update/{id}', [NhanVienWebController::class, 'showUpdateNhanVien'])->name('nhanvien.showUpdateNhanVien');
     Route::post('/admin/nhanvien/update', [NhanVienWebController::class, 'updateNhanVien'])->name('nhanvien.updateNhanVien');
+
+    Route::get('/admin/dichvu', [DichVuWebController::class, 'show'])->name('dichvu.show');
+    Route::get('/admin/dichvu/create', [DichVuWebController::class, 'showCreate'])->name('dichvu.showCreate');
+    Route::post('/admin/dichvu/create', [DichVuWebController::class, 'createDichVu'])->name('dichvu.createDichVu');
+    Route::get('/admin/dichvu/delete/{id}', [DichVuWebController::class, 'delete'])->name('dichvu.deleteDichvu');
+    Route::get('/admin/dichvu/update/{id}', [DichVuWebController::class, 'showUpdate'])->name('dichvu.showUpdate');
+    Route::post('/admin/dichvu/update', [DichVuWebController::class, 'update'])->name('dichvu.update');
 });
