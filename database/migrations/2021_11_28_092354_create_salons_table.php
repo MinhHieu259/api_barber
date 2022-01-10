@@ -15,12 +15,12 @@ class CreateSalonsTable extends Migration
     {
         Schema::create('salons', function (Blueprint $table) {
             $table->id();
-            $table->string('tenSalon');
-            $table->string('chuTiem');
-            $table->string('diachi');
-            $table->string('hinhanh');
-            $table->float('danhgia');
-            $table->integer('noibat')->default(1);
+            $table->string('tenSalon')->default("Vui lòng điền tên salon");
+            $table->string('chuTiem')->default("Vui lòng điền tên chủ tiệm");
+            $table->string('diaChi')->default("Vui lòng điền địa chỉ");
+            $table->string('hinhAnh')->default("");
+            $table->float('danhGia')->default(1);
+            $table->integer('noiBat')->default(1);
             $table->timestamps();
         });
     }

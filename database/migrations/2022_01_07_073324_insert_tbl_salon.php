@@ -14,8 +14,10 @@ class InsertTblSalon extends Migration
     public function up()
     {
         Schema::table('salons', function (Blueprint $table) {
-            $table->unsignedBigInteger("soChoNgoi");
-            $table->unsignedBigInteger("soNamThanhLap");
+            $table->string('username')->unique()->default(null);
+            $table->string('password')->default(null);
+            $table->unsignedBigInteger("soChoNgoi")->default(1);
+            $table->unsignedBigInteger("soNamThanhLap")->default(1);
         });
     }
 
