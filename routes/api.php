@@ -28,7 +28,7 @@ Route::get('getSalonById/{id}','Api\SalonController@getSalonById');
 // Dịch vụ
 Route::get('getDichvu','Api\DichvuController@getDichVu');
 // Dịch vụ
-Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon');
+Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon')->middleware('jwtAuth');
 
 //Lịch hẹn
 Route::post('DatLich','Api\LichhenController@DatLich');

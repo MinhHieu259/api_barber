@@ -31,17 +31,23 @@ class SalonController extends Controller
 
     public function getSalonById($id)
     {
-        $salon = Salon::where('id', $id)->get();
+        $salons = Salon::where('id', $id)->get();
         
-//         $salon['selfLove'] = false;
-        
-//         if($salon->yeuthich->user_id == Auth::user()->id){
-//             $salon['selfLove'] = true;
-       
-// }
+        foreach ($salons as $salon) {
+            // get user of post
+            $salon->user;
+           
+            // check if user like his post
+            $salon['selfLike'] = false;
+            foreach ($salon->yeuthich as $yeuthichn) {
+                if($yeuthichn->user_id == Auth::user()->id){
+                    $salon['selfLike'] = true;
+                }
+            }
+        }
         return response()->json([
             'success' => true,
-            'salon' => $salon
+            'salon' => $salons
         ]);
     }
 
