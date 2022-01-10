@@ -21,20 +21,21 @@ class SalonWebController extends Controller
         }
         return redirect()->route('admin.dashboard');
     }
-    public function registerPost(CreateRegisterRequest $request){   
-            $salon = new Salon;
-            $salon->username = $request->username;
-            $salon->password = Hash::make($request->password);
-            if($salon->where('username', $salon->username)->first()){
-                echo "Đã tồn tại tài khoản người dùng";
-                exit;
-            }
-            if($salon->save()){
-                return redirect('admin/login');
-            } else{
-                echo "Đăng kí thất bại";
-                exit;
-            }
+    public function registerPost(CreateRegisterRequest $request)
+    {
+        $salon = new Salon;
+        $salon->username = $request->username;
+        $salon->password = Hash::make($request->password);
+        if ($salon->where('username', $salon->username)->first()) {
+            echo "Đã tồn tại tài khoản người dùng";
+            exit;
+        }
+        if ($salon->save()) {
+            return redirect('admin/login');
+        } else {
+            echo "Đăng kí thất bại";
+            exit;
+        }
     }
 
     public function dashboard()
@@ -43,22 +44,24 @@ class SalonWebController extends Controller
         $adminUser = Auth::guard('admin')->user();
         return view('admin.dashboard', ['user' => $adminUser]);
     }
-    
+
     public function logout()
     {
         Auth::guard('admin')->logout();
         return redirect('admin/login');
     }
 
-    public function showSalon(Request $request){
+    public function showSalon(Request $request)
+    {
         $adminUser = Auth::guard('admin')->user();
-        return view('admin.salon',['user' => $adminUser]);
+        return view('admin.salon', ['user' => $adminUser]);
     }
-    public function updateSalon(Request $request){
+    public function updateSalon(Request $request)
+    {
         $salon = Salon::find(Auth::guard('admin')->user()->id);
-        if($request->hasFile('hinhAnh')){
+        if ($request->hasFile('hinhAnh')) {
             // kiểm tra hình ảnh có tồn tại trong db
-            if($salon->hinhAnh){ 
+            if ($salon->hinhAnh) {
                 $path = str_replace("storage", "public", $salon->hinhAnh);
                 Storage::delete($path);
             }
@@ -67,9 +70,10 @@ class SalonWebController extends Controller
             /* $name = $request->file('hinhAnh')->getClientOriginalName(); */
             // lấy type file
             $type = $request->file('hinhAnh')->extension();
-            $name = time(). '.' . $type;
+            $name = time() . '.' . $type;
             $path = $request->file('hinhAnh')->storeAs(
-                'public', $name
+                'public/salon',
+                $name
             );
             $path = str_replace("public", "storage", $path);
             $salon->hinhAnh = $path;
@@ -80,7 +84,7 @@ class SalonWebController extends Controller
         $salon->soNamThanhLap = $request->soNamThanhLap;
         $salon->gioiThieu = $request->gioiThieu;
         $salon->diaChi = $request->diaChi;
-        if( $salon->update()){
+        if ($salon->update()) {
             return redirect()->route('salon.showSalon');
         } else {
             echo "Cập nhật thất bại";
