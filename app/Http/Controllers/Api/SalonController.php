@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Salon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SalonController extends Controller
 {
@@ -31,6 +32,13 @@ class SalonController extends Controller
     public function getSalonById($id)
     {
         $salon = Salon::where('id', $id)->get();
+        
+//         $salon['selfLove'] = false;
+        
+//         if($salon->yeuthich->user_id == Auth::user()->id){
+//             $salon['selfLove'] = true;
+       
+// }
         return response()->json([
             'success' => true,
             'salon' => $salon

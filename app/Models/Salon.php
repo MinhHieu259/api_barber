@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class Salon extends Model implements AuthenticatableContract
+class Salon extends Model
 {
     use HasFactory;
     use Authenticatable;
@@ -18,5 +18,9 @@ class Salon extends Model implements AuthenticatableContract
     public function dichvu()
     {
         return $this->hasMany(dichvu::class);
+    }
+    public function yeuthich()
+    {
+        return $this->hasMany(YeuThich::class, 'id');
     }
 }

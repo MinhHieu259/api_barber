@@ -38,5 +38,5 @@ Route::post('DatLich','Api\LichhenController@DatLich');
 Route::get('getNhanVienBySalon/{gio},{id_salon}','Api\NhanVienController@getNhanVienBySalon');
 
 
-
-// Nhân viên
+// Yêu thích
+Route::post('YeuThich','Api\YeuThichController@yeuthich');

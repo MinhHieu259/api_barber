@@ -12,7 +12,7 @@ class NhanvienController extends Controller
 {
     public function getNhanVienBySalon($gio, $id_salon)
     {
-        $nhanvien = DB::table('nhanviens')->where('gioBatDauLam','<', $gio)->where('gioNghiLam','>', $gio)->where('id_salon', $id_salon)->get();
+        $nhanvien = DB::table('nhanviens')->where('gioBatDauLam','<=', $gio)->where('gioNghiLam','>=', $gio)->where('id_salon', $id_salon)->get();
 
         return response()->json([
             'success' => true,
