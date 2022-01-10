@@ -15,7 +15,7 @@ class InsertColumnIdsalon extends Migration
     {
         Schema::table('lichhens', function (Blueprint $table) {
             $table->unsignedBigInteger("id_salon");
-            $table->foreign('id_salon')->references('id')->on('lichhens')->onDelete('cascade');
+            $table->foreign('id_salon')->references('id')->on('salons')->onDelete('cascade');
         });
     }
 
