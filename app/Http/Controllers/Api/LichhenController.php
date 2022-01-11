@@ -22,6 +22,8 @@ class LichhenController extends Controller
         $lichhen->thanhTien = $lichhen->dichvu->giaTien;
         $lichhen->save();
         $lichhen->user;
+        $lichhen->salon;
+        $lichhen->nhanvien;
         return response()->json([
             'success' => true,
             'message' => 'Dat lich thanh cong',
@@ -35,6 +37,7 @@ class LichhenController extends Controller
         $lichhens = lichhen::where('id_Khachhang', Auth::user()->id)->where('status','Chưa xác nhận')->get();
         foreach($lichhens as $lichhen){
             $lichhen->salon;
+            $lichhen->nhanvien;
         }
         return response()->json([
             'success' => true,
