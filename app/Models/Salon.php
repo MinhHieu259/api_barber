@@ -9,10 +9,6 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 class Salon extends Model
 {
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
     public function nhanvien()
     {
         return $this->hasMany(Nhanvien::class);
@@ -23,6 +19,6 @@ class Salon extends Model
     }
     public function yeuthich()
     {
-        return $this->hasMany(YeuThich::class, 'salon_id');
+        return $this->hasMany(YeuThich::class,'id');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Salon;
+use App\Models\YeuThich;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,16 +33,11 @@ class SalonController extends Controller
     public function getSalonById($id)
     {
         $salons = Salon::where('id', $id)->get();
-        
         foreach ($salons as $salon) {
-            // get user of post
-            $salon->user;
-           
-            // check if user like his post
-            $salon['selfLike'] = false;
-            foreach ($salon->yeuthich as $yeuthichn) {
-                if($yeuthichn->user_id == Auth::user()->id){
-                    $salon['selfLike'] = true;
+            $salon['selfLove'] = false;
+            foreach ($salon->yeuthich as $yeuthichperson) {
+                if($yeuthichperson->user_id == Auth::user()->id){
+                    $salon['selfLove'] = true;
                 }
             }
         }

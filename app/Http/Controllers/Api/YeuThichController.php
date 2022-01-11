@@ -12,9 +12,8 @@ class YeuThichController extends Controller
     public function yeuthich(Request $request)
     {
         $yeuthich = YeuThich::where('salon_id', $request->id)->where('user_id', Auth::user()->id)->get();
-        // check if it return 0 then this post is not like and should be like else unlike
         if(count($yeuthich) > 0){
-            // we can not like more one
+            // Hủy yêu thích
             $yeuthich[0]->delete();
             return response()->json([
                 'success' => true,
