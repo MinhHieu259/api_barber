@@ -19,6 +19,6 @@ class Salon extends Model
     }
     public function yeuthich()
     {
-        return $this->hasMany(YeuThich::class,'id');
+        return $this->hasMany(YeuThich::class,'salon_id');
     }
 }

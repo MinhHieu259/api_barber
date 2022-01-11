@@ -26,7 +26,8 @@ class YeuThichController extends Controller
         $yeuthich->save();
         return response()->json([
             'success' => true,
-            'message' => 'loved'
+            'message' => 'loved',
+            'yeuthich' => $yeuthich
         ]);
     }
 }
