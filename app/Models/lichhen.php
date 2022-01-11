@@ -19,4 +19,8 @@ class lichhen extends Model
     {
         return $this->belongsTo(dichvu::class,"id_Dichvu");
     }
+    public function salon()
+    {
+        return $this->belongsTo(Salon::class,"id_salon");
+    }
 }

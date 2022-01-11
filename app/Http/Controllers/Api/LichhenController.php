@@ -21,12 +21,24 @@ class LichhenController extends Controller
         $lichhen->thoiGian = $request->thoiGian;
         $lichhen->thanhTien = $lichhen->dichvu->giaTien;
         $lichhen->save();
-        $lichhen->user();
+        $lichhen->user;
         return response()->json([
             'success' => true,
             'message' => 'Dat lich thanh cong',
             'lichhen' => $lichhen
         ]);
 
+    }
+
+    public function getLichHenSapToi()
+    {
+        $lichhens = lichhen::where('id_Khachhang', Auth::user()->id)->where('status','Chưa xác nhận')->get();
+        foreach($lichhens as $lichhen){
+            $lichhen->salon;
+        }
+        return response()->json([
+            'success' => true,
+            'lichhen' => $lichhens
+        ]);
     }
 }

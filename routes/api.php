@@ -28,11 +28,11 @@ Route::get('getSalonById/{id}','Api\SalonController@getSalonById');
 // Dịch vụ
 Route::get('getDichvu','Api\DichvuController@getDichVu');
 // Dịch vụ
-Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon')->middleware('jwtAuth');
+Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon');
 
 //Lịch hẹn
 Route::post('DatLich','Api\LichhenController@DatLich');
-
+Route::get('getLichHenSapToi','Api\LichhenController@getLichHenSapToi')->middleware('jwtAuth');
 
 //Nhân viên
 Route::get('getNhanVienBySalon/{gio},{id_salon}','Api\NhanVienController@getNhanVienBySalon');
