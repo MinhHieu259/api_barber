@@ -1,10 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 <div class="">
-
+  <a class="btn btn-danger float-right d-block" href="{{route('lichhen.show',['status'=> "huỷ" ])}}" role="button">Lịch hẹn đã huỷ</a>
   <a class="btn btn-primary float-right d-block" href="{{route('lichhen.show',['status'=> "đã hoàn thành" ])}}" role="button">Lịch hẹn đã hoàn thành</a>
   <a class="btn btn-success float-right d-block" href="{{route('lichhen.show',['status'=> "đã xác nhận" ])}}" role="button">Lịch hẹn đã xác nhận</a>
   <a class="btn btn-warning float-right d-block" href="{{route('lichhen.show',['status'=> "chưa xác nhận" ])}}" role="button">Lịch hẹn chưa xác nhận</a>
+  
     <div class="title_left">
         <h3>Quản lý <small> lịch hẹn</small></h3>
     </div>
