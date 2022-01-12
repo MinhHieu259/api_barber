@@ -30,4 +30,17 @@ class YeuThichController extends Controller
             'yeuthich' => $yeuthich
         ]);
     }
+
+    public function getListYeuThich()
+    {
+        $yeuthichs = YeuThich::where("user_id", Auth::user()->id)->get();
+        
+        foreach ($yeuthichs as $yeuthich) {
+            $yeuthich->salon;
+        }
+        return response()->json([
+            'success' => true,
+            'yeuthich' => $yeuthichs
+        ]);
+    }
 }
