@@ -33,9 +33,11 @@ Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon'
 //Lịch hẹn
 Route::post('DatLich','Api\LichhenController@DatLich');
 Route::get('getLichHenSapToi','Api\LichhenController@getLichHenSapToi')->middleware('jwtAuth');
+Route::get('getLichDaDuyet','Api\LichhenController@getLichDaDuyet')->middleware('jwtAuth');
+Route::get('getLichDaDat','Api\LichhenController@getLichDaDat')->middleware('jwtAuth');
 
 //Nhân viên
-Route::get('getNhanVienBySalon/{gio},{id_salon}','Api\NhanVienController@getNhanVienBySalon');
+Route::get('getNhanVienBySalon/{gio},{id_salon},{id_dichvu}','Api\NhanVienController@getNhanVienBySalon');
 
 
 // Yêu thích

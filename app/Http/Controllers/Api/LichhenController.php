@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\dichvu;
 use App\Models\lichhen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +34,32 @@ class LichhenController extends Controller
     public function getLichHenSapToi()
     {
         $lichhens = lichhen::where('id_Khachhang', Auth::user()->id)->where('status','Chưa xác nhận')->get();
+        foreach($lichhens as $lichhen){
+            $lichhen->salon;
+            $lichhen->nhanvien;
+        }
+        return response()->json([
+            'success' => true,
+            'lichhen' => $lichhens
+        ]);
+    }
+
+    public function getLichDaDuyet()
+    {
+        $lichhens = lichhen::where('id_Khachhang', Auth::user()->id)->where('status','đã xác nhận')->get();
+        foreach($lichhens as $lichhen){
+            $lichhen->salon;
+            $lichhen->nhanvien;
+        }
+        return response()->json([
+            'success' => true,
+            'lichhen' => $lichhens
+        ]);
+    }
+
+    public function getLichDaDat()
+    {
+        $lichhens = lichhen::where('id_Khachhang', Auth::user()->id)->where('status','đã hoàn thành')->get();
         foreach($lichhens as $lichhen){
             $lichhen->salon;
             $lichhen->nhanvien;
