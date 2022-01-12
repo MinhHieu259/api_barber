@@ -14,11 +14,13 @@ class SalonWebController extends Controller
 {
     public function loginPost(Request $request)
     {
+
         $credentials = $request->only('username', 'password');
         if (!Auth::guard('admin')->attempt($credentials)) {
             echo "Đăng nhập thất bại";
             exit;
         }
+        
         return redirect()->route('admin.dashboard');
     }
     public function registerPost(CreateRegisterRequest $request)

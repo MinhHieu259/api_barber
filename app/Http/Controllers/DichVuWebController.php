@@ -12,6 +12,7 @@ class DichVuWebController extends Controller
 {
     public function show()
     {
+
         $user = Auth::guard('admin')->user();
         $model = new dichvu;
         $records = $model::where('id_salon', $user->id)->get();
