@@ -77,4 +77,17 @@ class LichhenController extends Controller
             'lichhen' => $lichhens
         ]);
     }
+
+    public function chiTietLichHen($id_lichhen)
+    {
+        $lichhens = lichhen::where('id', $id_lichhen)->get();
+        foreach($lichhens as $lichhen){
+            $lichhen->salon;
+            $lichhen->dichvu;
+        }
+        return response()->json([
+            'success' => true,
+            'lichhen' => $lichhens
+        ]);
+    }
 }

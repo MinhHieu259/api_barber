@@ -35,6 +35,7 @@ Route::post('DatLich','Api\LichhenController@DatLich');
 Route::get('getLichHenSapToi','Api\LichhenController@getLichHenSapToi')->middleware('jwtAuth');
 Route::get('getLichDaDuyet','Api\LichhenController@getLichDaDuyet')->middleware('jwtAuth');
 Route::get('getLichDaDat','Api\LichhenController@getLichDaDat')->middleware('jwtAuth');
+Route::get('chiTietLichHen/{id_lichhen}','Api\LichhenController@chiTietLichHen')->middleware('jwtAuth');
 
 //Nhân viên
 Route::get('getNhanVienBySalon/{gio},{id_salon},{id_dichvu}','Api\NhanVienController@getNhanVienBySalon');
