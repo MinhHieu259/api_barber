@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\lichhen;
+use App\Models\ThongBao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,13 @@ class LichhenController extends Controller
         $lichhen->user;
         $lichhen->salon;
         $lichhen->nhanvien;
+
+        $thongBao = new ThongBao();
+        $thongBao->user_id = Auth::user()->id;
+        $thongBao->salon_id = $request->id_salon;
+        $thongBao->noiDung = "Đặt lịch thành công";
+        $thongBao->chiTietNoiDung = "Lịch cắt ngày ".$request->ngayHen." thành công tại ".$thongBao->salon->tenSalon;
+        $thongBao->save();
         return response()->json([
             'success' => true,
             'message' => 'Dat lich thanh cong',

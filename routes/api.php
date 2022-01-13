@@ -43,3 +43,7 @@ Route::get('getNhanVienBySalon/{gio},{id_salon},{id_dichvu}','Api\NhanVienContro
 // Yêu thích
 Route::post('YeuThich','Api\YeuThichController@yeuthich');
 Route::get('getListYeuThich','Api\YeuThichController@getListYeuThich')->middleware('jwtAuth');
+
+// Thông báo
+Route::get('getThongBao','Api\ThongBaoController@getThongBao')->middleware('jwtAuth');
+
