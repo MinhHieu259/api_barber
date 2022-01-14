@@ -90,4 +90,15 @@ class LichhenController extends Controller
             'lichhen' => $lichhens
         ]);
     }
+
+    public function huyLichHen($id_lichhen)
+    {
+        $lichhen = lichhen::where('id', $id_lichhen)->first();
+
+        $lichhen->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Hủy lịch thành công'
+        ]);
+    }
 }
