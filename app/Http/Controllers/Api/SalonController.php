@@ -14,6 +14,23 @@ class SalonController extends Controller
     {
         $salons = Salon::orderBy('id','desc')->get();
         
+        foreach($salons as $salon){
+            $totalRating = 0;
+            $countRating = 0;
+            $salon['totalRating'] = $totalRating;
+            $salon['countRating'] = $countRating;
+            $salon['rating'] = 0;
+            foreach($salon->danhgia as $danhgia){
+               
+                $totalRating += $danhgia->soSao;
+                $countRating++;
+                $salon['totalRating'] = $totalRating;
+                $salon['countRating'] = $countRating;
+                $salon['rating'] = $totalRating/$countRating;
+               
+            }
+            
+        }
         return response()->json([
             'success' => true,
             'salon' => $salons

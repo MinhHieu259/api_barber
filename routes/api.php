@@ -49,3 +49,6 @@ Route::get('getListYeuThich','Api\YeuThichController@getListYeuThich')->middlewa
 // Thông báo
 Route::get('getThongBao','Api\ThongBaoController@getThongBao')->middleware('jwtAuth');
 
+// Đánh giá
+Route::post('danhGia','Api\DanhGiaController@danhGia')->middleware('jwtAuth');
+

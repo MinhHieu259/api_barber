@@ -22,4 +22,8 @@ class Salon extends Model implements AuthenticatableContract
     {
         return $this->hasMany(YeuThich::class,'salon_id');
     }
+    public function danhgia()
+    {
+        return $this->hasMany(DanhGia::class,'id_salon');
+    }
 }
