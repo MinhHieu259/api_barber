@@ -27,6 +27,7 @@ Route::get('getSalonById/{id}','Api\SalonController@getSalonById');
 
 // Dịch vụ
 Route::get('getDichvu','Api\DichvuController@getDichVu');
+Route::get('getChiTietDV/{id_dichvu}','Api\DichvuController@getChiTietDV');
 // Dịch vụ
 Route::get('getDichVuBySalon/{id_salon}','Api\DichvuController@getDichVuBySalon');
 
