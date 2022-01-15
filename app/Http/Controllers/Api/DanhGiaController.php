@@ -15,6 +15,7 @@ class DanhGiaController extends Controller
         $danhGia->id_user = Auth::user()->id;
         $danhGia->id_salon = $request->id_salon;
         $danhGia->soSao = $request->soSao;
+        $danhGia->id_lichhen = $request->id_lichhen;
         $danhGia->save();
 
         return response()->json([

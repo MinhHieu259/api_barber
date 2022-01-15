@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\DanhGia;
 use App\Models\lichhen;
 use App\Models\ThongBao;
 use Illuminate\Http\Request;
@@ -84,6 +85,12 @@ class LichhenController extends Controller
         foreach($lichhens as $lichhen){
             $lichhen->salon;
             $lichhen->dichvu;
+            $danhgia = DanhGia::where('id_lichhen', $lichhen->id)->first();
+            if($danhgia){
+                $lichhen['daDanhGia'] = true;
+            }else{
+                $lichhen['daDanhGia'] = false;
+            }
         }
         return response()->json([
             'success' => true,
