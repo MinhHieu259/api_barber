@@ -18,6 +18,7 @@ class InsertTblSalon extends Migration
             $table->string('password')->default("");
             $table->unsignedBigInteger("soChoNgoi")->default(1);
             $table->unsignedBigInteger("soNamThanhLap")->default(1);
+
         });
     }
 
