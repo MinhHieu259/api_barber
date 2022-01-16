@@ -31,4 +31,14 @@ class DichvuController extends Controller
             'dichvu' => $dichvu
         ]);
     }
+
+    public function getChiTietDV($id_dichvu)
+    {
+        $dichvu = dichvu::where('id', $id_dichvu)->get();
+        
+        return response()->json([
+            'success' => true,
+            'dichvu' => $dichvu
+        ]);
+    }
 }

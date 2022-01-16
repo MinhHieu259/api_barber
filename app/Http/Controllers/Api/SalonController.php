@@ -12,7 +12,7 @@ class SalonController extends Controller
 {
     public function getSalon()
     {
-        $salons = Salon::orderBy('id','desc')->get();
+        $salons = Salon::orderBy('id','asc')->get();
         
         foreach($salons as $salon){
             $totalRating = 0;
