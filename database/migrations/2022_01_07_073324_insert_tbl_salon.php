@@ -18,7 +18,10 @@ class InsertTblSalon extends Migration
             $table->string('password')->default("");
             $table->unsignedBigInteger("soChoNgoi")->default(1);
             $table->unsignedBigInteger("soNamThanhLap")->default(1);
+            $table->double("latitude")->default(16.068);
+            $table->double("longitude")->default(108.212);
 
+                
         });
     }
 

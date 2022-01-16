@@ -93,4 +93,21 @@ class SalonWebController extends Controller
         }
         exit;
     }
+
+    public function locationView(){
+        $adminUser = Auth::guard('admin')->user();
+        return view('admin.location', ['user' => $adminUser]);
+    }
+    public function locationUpdate(Request $request){
+        $salon = Salon::find(Auth::guard('admin')->user()->id);
+
+        $salon->latitude = $request->latitude;
+        $salon->longitude = $request->longitude;
+        if ($salon->update()) {
+            return redirect()->route('salon.location');
+        } else {
+            echo "Cập nhật thất bại";
+        }
+        exit;
+    }
 }

@@ -58,4 +58,8 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/admin/lichhen/show/{status}', [LichHenWebController::class, 'show'])->name('lichhen.show');
     Route::get('/admin/lichhen/update/{id}/{status}', [LichHenWebController::class, 'update'])->name('lichhen.update');
+
+    Route::get('/admin/location', [SalonWebController::class, 'locationView'])->name('salon.location');
+    Route::post('/admin/location', [SalonWebController::class, 'locationUpdate'])->name('salon.location.update');
+
 });
